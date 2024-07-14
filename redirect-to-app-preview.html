@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirecting...</title>
+  <script>
+    // Function to get query parameter by name
+    function getQueryParameter(name) {
+      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+      var results = regex.exec(location.search);
+      return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+    // Get the token from the URL query parameters
+    var token = getQueryParameter('token');
+
+    // Construct the custom scheme URL with the token
+    var customUrl = 'com.learnmathstoday.preview://app?token=' + token;
+
+    // Redirect to the custom URL
+    window.location.replace(customUrl);
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
