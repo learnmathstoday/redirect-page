@@ -13,9 +13,14 @@
 
     // Get the token from the URL query parameters
     var token = getQueryParameter('token');
+    var customUrl;
 
-    // Construct the custom scheme URL with the token
-    var customUrl = 'com.learnmathstoday://app?token=' + token;
+    // Check if token is available
+    if (token) {
+      customUrl = 'com.learnmathstoday://app?token=' + token;
+    } else {
+      customUrl = 'com.learnmathstoday://login';
+    }
 
     // Redirect to the custom URL
     window.location.replace(customUrl);
